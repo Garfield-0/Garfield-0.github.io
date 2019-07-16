@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Category: HEXO | Hexo</title>
+  <title>[ES6]Array数组新方法 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/categories/HEXO/index.html">
+  <meta name="description" content="ArrayES6对数组有了很多新的操作，而且这些操作会让你很惊喜。参考链接">
+<meta name="keywords" content="Javascript,ES6,前端">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[ES6]Array数组新方法">
+<meta property="og:url" content="http://yoursite.com/2018/09/01/ArrayEs6新方法/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="ArrayES6对数组有了很多新的操作，而且这些操作会让你很惊喜。参考链接">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-07-16T09:30:24.438Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="[ES6]Array数组新方法">
+<meta name="twitter:description" content="ArrayES6对数组有了很多新的操作，而且这些操作会让你很惊喜。参考链接">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -150,79 +155,223 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-ArrayEs6新方法" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/09/01/搭建自己的免费博客/" class="archive-article-date">
-  	<time datetime="2018-09-01T09:06:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-01</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/09/01/搭建自己的免费博客/">[HEXO]搭建自己的免费博客</a>
+    <h1 class="article-title" itemprop="name">
+      [ES6]Array数组新方法
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2018/09/01/ArrayEs6新方法/" class="archive-article-date">
+  	<time datetime="2018-09-01T09:06:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Array"><a href="#Array" class="headerlink" title="Array"></a>Array</h1><p>ES6对数组有了很多新的操作，而且这些操作会让你很惊喜。<br><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/from" target="_blank" rel="noopener">参考链接</a><br><a id="more"></a></p>
+<h1 id="1-Array-from-Array-of-fill-includes-find-amp-findindex-copyWithin-entries-keys-amp-values"><a href="#1-Array-from-Array-of-fill-includes-find-amp-findindex-copyWithin-entries-keys-amp-values" class="headerlink" title="1.Array.from(),Array.of(),fill(),includes(),find()&amp;findindex(),copyWithin(),entries(),keys()&amp;values()"></a>1.Array.from(),Array.of(),fill(),includes(),find()&amp;findindex(),copyWithin(),entries(),keys()&amp;values()</h1><h2 id="1-1Array-from"><a href="#1-1Array-from" class="headerlink" title="1.1Array.from()"></a>1.1Array.from()</h2><p>Array.from() 方法从一个类似数组或可迭代对象中创建一个新的，浅拷贝的数组实例。</p>
+<p>#demo</p>
+<pre><code>console.log(Array.from(&apos;foo&apos;));
+// expected output: Array [&quot;f&quot;, &quot;o&quot;, &quot;o&quot;]
+
+
+console.log(Array.from([1, 2, 3], x =&gt; x + x));
+ // expected output: Array [2, 4, 6]
+</code></pre><h2 id="1-2语法"><a href="#1-2语法" class="headerlink" title="1.2语法"></a>1.2语法</h2><pre><code>Array.from(arrayLike[, mapFn[, thisArg]])
+</code></pre><h1 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h1><ul>
+<li>arrayLike</li>
+</ul>
+<ol>
+<li>想要转换成数组的伪数组对象或可迭代对象。</li>
+</ol>
+<ul>
+<li>mapFn (可选参数)</li>
+</ul>
+<ol>
+<li>如果指定了该参数，新数组中的每个元素会执行该回调函数。</li>
+</ol>
+<ul>
+<li>thisArg (可选参数)</li>
+</ul>
+<ul>
+<li>可选参数，执行回调函数 mapFn 时 this 对象。<br>#返回参数<br>一个新的数组实例</li>
+</ul>
+<h1 id="3-描述"><a href="#3-描述" class="headerlink" title="3.描述"></a>3.描述</h1><h2 id="3-1Array-from-可以通过以下方式来创建数组对象："><a href="#3-1Array-from-可以通过以下方式来创建数组对象：" class="headerlink" title="3.1Array.from() 可以通过以下方式来创建数组对象："></a>3.1Array.from() 可以通过以下方式来创建数组对象：</h2><ul>
+<li>伪数组对象（拥有一个 length 属性和若干索引属性的任意对象）</li>
+<li>可迭代对象（可以获取对象中的元素,如 Map和 Set 等）<br>Array.from() 方法有一个可选参数 mapFn，让你可以在最后生成的数组上再执行一次 map 方法后再返回。也就是说 Array.from(obj, mapFn, thisArg) 就相当于 Array.from(obj).map(mapFn, thisArg), 除非创建的不是可用的中间数组。 这对一些数组的子类,如  typed arrays 来说很重要, 因为中间数组的值在调用 map() 时需要是适当的类型。</li>
+</ul>
+<p>from() 的 length 属性为 1 ，即Array.from.length === 1。</p>
+<p>在 ES2015 中， Class 语法允许我们为内置类型（比如 Array）和自定义类新建子类（比如叫 SubArray）。这些子类也会继承父类的静态方法，比如 SubArray.from()，调用该方法后会返回子类 SubArray 的一个实例，而不是 Array 的实例。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--more--&gt; //在需要阶段的地方插入该代码语句</span><br></pre></td></tr></table></figure></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Javascript</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">blog</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ES6</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">免费</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/HEXO//" class="article-tag-list-link color5">HEXO</a>
+        			<a href="/categories/Javascript//" class="article-tag-list-link color1">Javascript</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/09/01/ArrayEs6新方法/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2018/09/01/搭建自己的免费博客/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          [HEXO]搭建自己的免费博客
+        
+      </div>
+    </a>
   
   
-    </div></section>
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -245,10 +394,10 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
-		isCategory: true,
+		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
 		root: "/",

@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Category: HEXO | Hexo</title>
+  <title>Js 数组——filter()、map()、some()、every()、forEach()、lastIndexOf()、indexOf() | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/categories/HEXO/index.html">
+  <meta name="description" content="#filter():  ##语法：    var filteredArray = array.filter(callback[, thisObject]);参数说明：callback： 要对每个数组元素执行的回调函数。thisObject ： 在执行回调函数时定义的this对象。//过滤掉小于 10 的数组元素： //代码： function isBigEnough(element, index,">
+<meta name="keywords" content="JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Js 数组——filter()、map()、some()、every()、forEach()、lastIndexOf()、indexOf()">
+<meta property="og:url" content="http://yoursite.com/2019/06/05/数组的some every方法区别/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="#filter():  ##语法：    var filteredArray = array.filter(callback[, thisObject]);参数说明：callback： 要对每个数组元素执行的回调函数。thisObject ： 在执行回调函数时定义的this对象。//过滤掉小于 10 的数组元素： //代码： function isBigEnough(element, index,">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-07-11T06:18:52.280Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="Js 数组——filter()、map()、some()、every()、forEach()、lastIndexOf()、indexOf()">
+<meta name="twitter:description" content="#filter():  ##语法：    var filteredArray = array.filter(callback[, thisObject]);参数说明：callback： 要对每个数组元素执行的回调函数。thisObject ： 在执行回调函数时定义的this对象。//过滤掉小于 10 的数组元素： //代码： function isBigEnough(element, index,">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -150,79 +155,289 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-数组的some every方法区别" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/09/01/搭建自己的免费博客/" class="archive-article-date">
-  	<time datetime="2018-09-01T09:06:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-01</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/09/01/搭建自己的免费博客/">[HEXO]搭建自己的免费博客</a>
+    <h1 class="article-title" itemprop="name">
+      Js 数组——filter()、map()、some()、every()、forEach()、lastIndexOf()、indexOf()
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/06/05/数组的some every方法区别/" class="archive-article-date">
+  	<time datetime="2019-06-05T09:06:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>#filter(): </p>
+<p>##语法：<br>    var filteredArray = array.filter(callback[, thisObject]);<br>参数说明：<br>callback： 要对每个数组元素执行的回调函数。<br>thisObject ： 在执行回调函数时定义的this对象。<br>//过滤掉小于 10 的数组元素：</p>
+<pre><code>//代码：
+function isBigEnough(element, index, array) {
+return (element &gt;= 10);
+}
+var filtered = [12, 5, 8, 130, 44].filter(isBigEnough);
+// 12, 130, 44
+//结果：[12, 5, 8, 130, 44].filter(isBigEnough) ： 12, 130, 44
+</code></pre><a id="more"></a>
+<p>功能说明：</p>
+<p>#####对数组中的每个元素都执行一次指定的函数（callback），并且创建一个新的数组，该数组元素是所有回调函数执行时返回值为 true 的原数组元素。它只对数组中的非空元素执行指定的函数，没有赋值或者已经删除的元素将被忽略，同时，新创建的数组也不会包含这些元素。</p>
+<p>回调函数可以有三个参数：当前元素，当前元素的索引和当前的数组对象。</p>
+<p>如参数 thisObject 被传递进来，它将被当做回调函数（callback）内部的 this 对象，如果没有传递或者为null，那么将会使用全局对象。</p>
+<p>filter 不会改变原有数组，记住：只有在回调函数执行前传入的数组元素才有效，在回调函数开始执行后才添加的元素将被忽略，而在回调函数开始执行到最后一个元素这一期间，数组元素被删除或者被更改的，将以回调函数访问到该元素的时间为准，被删除的元素将被忽略。</p>
+<p>#map():<br>    //将所有的数组元素转换为大写：</p>
+<pre><code>var strings = [&quot;hello&quot;, &quot;Array&quot;, &quot;WORLD&quot;];
+function makeUpperCase(v)
+{
+return v.toUpperCase();
+}
+var uppers = strings.map(makeUpperCase);
+// uppers is now [&quot;HELLO&quot;, &quot;ARRAY&quot;, &quot;WORLD&quot;]
+// strings is unchanged
+//结果：[&quot;hello&quot;, &quot;Array&quot;, &quot;WORLD&quot;].map(makeUpperCase) ： HELLO, ARRAY, WORLD
+</code></pre><p>#some():<br>对数组中的每个元素都执行一次指定的函数（callback），直到此函数返回 true，如果发现这个元素，some 将返回 true，如果回调函数对每个元素执行后都返回 false ，some 将返回 false。它只对数组中的非空元素执行指定的函数，没有赋值或者已经删除的元素将被忽略。<br>    //检查是否有数组元素大于等于10：</p>
+<pre><code>function isBigEnough(element, index, array) {
+return (element &gt;= 10);
+}
+var passed = [2, 5, 8, 1, 4].some(isBigEnough);
+// passed is false
+passed = [12, 5, 8, 1, 4].some(isBigEnough);
+// passed is true
+//结果：
+//[2, 5, 8, 1, 4].some(isBigEnough) ： false 
+//[12, 5, 8, 1, 4].some(isBigEnough) ： true
+</code></pre><p>#every():</p>
+<p>#####对数组中的每个元素都执行一次指定的函数（callback），直到此函数返回 false，如果发现这个元素，every 将返回 false，如果回调函数对每个元素执行后都返回 true ，every 将返回 true。它只对数组中的非空元素执行指定的函数，没有赋值或者已经删除的元素将被忽略</p>
+<pre><code>//测试是否所有数组元素都大于等于10：
+
+function isBigEnough(element, index, array) {
+return (element &gt;= 10);
+}
+var passed = [12, 5, 8, 130, 44].every(isBigEnough);
+// passed is false
+passed = [12, 54, 18, 130, 44].every(isBigEnough);
+// passed is true
+//结果：
+//[12, 5, 8, 130, 44].every(isBigEnough) 返回 ： false 
+//[12, 54, 18, 130, 44].every(isBigEnough) 返回 ： true
+</code></pre><p>#forEach():<br>    //打印数组内容：</p>
+<pre><code>function printElt(element, index, array) {
+document.writeln(&quot;[&quot; + index + &quot;] is &quot; + element + &quot;&lt;br /&gt;&quot;);
+}
+[2, 5, 9].forEach(printElt);
+// Prints:
+// [0] is 2
+// [1] is 5
+// [2] is 9
+//结果：
+//[0] is 2
+//[1] is 5
+//[2] is 9
+</code></pre><p>#lastIndexOf():<br>语法</p>
+<pre><code>var index = array.lastIndexOf(searchElement[, fromIndex]);
+</code></pre><p>参数说明</p>
+<p>searchElement： 要搜索的元素</p>
+<p>fromIndex ： 开始搜索的位置，默认为数组的长度（length），在这样的情况下，将搜索所有的数组元素。搜索是反方向进行的。</p>
+<p>功能说明</p>
+<p>比较 searchElement 和数组的每个元素是否绝对一致（===），当有元素符合条件时，返回当前元素的索引。如果没有发现，就直接返回 -1 。<br>//查找符合条件的元素：</p>
+<pre><code>var array = [2, 5, 9, 2];
+var index = array.lastIndexOf(2);
+// index is 3
+index = array.lastIndexOf(7);
+// index is -1
+index = array.lastIndexOf(2, 3);
+// index is 3
+index = array.lastIndexOf(2, 2);
+// index is 0
+index = array.lastIndexOf(2, -2);
+// index is 0
+index = array.lastIndexOf(2, -1);
+// index is 3
+//结果：
+//[2, 5, 9, 2].lastIndexOf(2) ： 3 
+//[2, 5, 9, 2].lastIndexOf(7) ： -1 
+//[2, 5, 9, 2].lastIndexOf(2, 3) ： 3 
+//[2, 5, 9, 2].lastIndexOf(2, 2) ： 0 
+//[2, 5, 9, 2].lastIndexOf(2, -2) ： 0 
+//[2, 5, 9, 2].lastIndexOf(2, -1) ： 3
+</code></pre><p>#indexOf():<br>功能与lastIndexOf()一样，搜索是正向进行的</p>
+<p>复制代码<br>//查找符合条件的元素：</p>
+<pre><code>var array = [2, 5, 9];
+var index = array.indexOf(2);
+// index is 0
+index = array.indexOf(7);
+// index is -1
+//结果：
+//[2, 5, 9].indexOf(2) ： 0 
+//[2, 5, 9].indexOf(7) ： -1 
+</code></pre><p>#slice()</p>
+<p><strong>方法返回一个新的数组对象，这一对象是一个由 begin和 end（不包括end）决定的原数组的浅拷贝。原始数组不会被改变。</strong></p>
+<pre><code>var animals = [&apos;ant&apos;, &apos;bison&apos;, &apos;camel&apos;, &apos;duck&apos;, &apos;elephant&apos;];
+
+console.log(animals.slice(2));
+// expected output: Array [&quot;camel&quot;, &quot;duck&quot;, &quot;elephant&quot;]
+
+console.log(animals.slice(2, 4));
+// expected output: Array [&quot;camel&quot;, &quot;duck&quot;]
+
+console.log(animals.slice(1, 5));
+// expected output: Array [&quot;bison&quot;, &quot;camel&quot;, &quot;duck&quot;, &quot;elephant&quot;]
+</code></pre>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">blog</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">免费</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/HEXO//" class="article-tag-list-link color5">HEXO</a>
+        			<a href="/categories/JavaScript//" class="article-tag-list-link color1">JavaScript</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/06/05/数组的some every方法区别/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2018/09/01/搭建自己的免费博客/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">[HEXO]搭建自己的免费博客</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -245,10 +460,10 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
-		isCategory: true,
+		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
 		root: "/",
