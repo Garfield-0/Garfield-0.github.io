@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Js 数组——filter()、map()、some()、every()、forEach()、lastIndexOf()、indexOf() | Hexo</title>
+  <title>[Js]Array数组新方法 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="#filter():  ##语法：    var filteredArray = array.filter(callback[, thisObject]);参数说明：callback： 要对每个数组元素执行的回调函数。thisObject ： 在执行回调函数时定义的this对象。//过滤掉小于 10 的数组元素： //代码： function isBigEnough(element, index,">
-<meta name="keywords" content="JavaScript">
+  <meta name="description" content="filter():语法：var filteredArray = array.filter(callback[, thisObject]); 参数说明：callback： 要对每个数组元素执行的回调函数。thisObject ： 在执行回调函数时定义的this对象。//过滤掉小于 10 的数组元素： //代码： function isBigEnough(element, index, array)">
+<meta name="keywords" content="Javascript,前端,ES6">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Js 数组——filter()、map()、some()、every()、forEach()、lastIndexOf()、indexOf()">
-<meta property="og:url" content="http://yoursite.com/2019/06/05/数组的some every方法区别/index.html">
+<meta property="og:title" content="[Js]Array数组新方法">
+<meta property="og:url" content="http://yoursite.com/2018/08/01/数组的some every方法区别/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="#filter():  ##语法：    var filteredArray = array.filter(callback[, thisObject]);参数说明：callback： 要对每个数组元素执行的回调函数。thisObject ： 在执行回调函数时定义的this对象。//过滤掉小于 10 的数组元素： //代码： function isBigEnough(element, index,">
+<meta property="og:description" content="filter():语法：var filteredArray = array.filter(callback[, thisObject]); 参数说明：callback： 要对每个数组元素执行的回调函数。thisObject ： 在执行回调函数时定义的this对象。//过滤掉小于 10 的数组元素： //代码： function isBigEnough(element, index, array)">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-07-11T06:18:52.280Z">
+<meta property="og:updated_time" content="2019-08-01T02:49:48.201Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Js 数组——filter()、map()、some()、every()、forEach()、lastIndexOf()、indexOf()">
-<meta name="twitter:description" content="#filter():  ##语法：    var filteredArray = array.filter(callback[, thisObject]);参数说明：callback： 要对每个数组元素执行的回调函数。thisObject ： 在执行回调函数时定义的this对象。//过滤掉小于 10 的数组元素： //代码： function isBigEnough(element, index,">
+<meta name="twitter:title" content="[Js]Array数组新方法">
+<meta name="twitter:description" content="filter():语法：var filteredArray = array.filter(callback[, thisObject]); 参数说明：callback： 要对每个数组元素执行的回调函数。thisObject ： 在执行回调函数时定义的this对象。//过滤掉小于 10 的数组元素： //代码： function isBigEnough(element, index, array)">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -162,21 +162,21 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Js 数组——filter()、map()、some()、every()、forEach()、lastIndexOf()、indexOf()
+      [Js]Array数组新方法
     </h1>
   
 
         
-        <a href="/2019/06/05/数组的some every方法区别/" class="archive-article-date">
-  	<time datetime="2019-06-05T09:06:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-05</time>
+        <a href="/2018/08/01/数组的some every方法区别/" class="archive-article-date">
+  	<time datetime="2018-08-01T09:06:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-01</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>#filter(): </p>
-<p>##语法：<br>    var filteredArray = array.filter(callback[, thisObject]);<br>参数说明：<br>callback： 要对每个数组元素执行的回调函数。<br>thisObject ： 在执行回调函数时定义的this对象。<br>//过滤掉小于 10 的数组元素：</p>
+        <h1 id="filter"><a href="#filter" class="headerlink" title="filter():"></a>filter():</h1><h2 id="语法："><a href="#语法：" class="headerlink" title="语法："></a>语法：</h2><pre><code>var filteredArray = array.filter(callback[, thisObject]);
+</code></pre><p>参数说明：<br>callback： 要对每个数组元素执行的回调函数。<br>thisObject ： 在执行回调函数时定义的this对象。<br>//过滤掉小于 10 的数组元素：</p>
 <pre><code>//代码：
 function isBigEnough(element, index, array) {
 return (element &gt;= 10);
@@ -186,12 +186,12 @@ var filtered = [12, 5, 8, 130, 44].filter(isBigEnough);
 //结果：[12, 5, 8, 130, 44].filter(isBigEnough) ： 12, 130, 44
 </code></pre><a id="more"></a>
 <p>功能说明：</p>
-<p>#####对数组中的每个元素都执行一次指定的函数（callback），并且创建一个新的数组，该数组元素是所有回调函数执行时返回值为 true 的原数组元素。它只对数组中的非空元素执行指定的函数，没有赋值或者已经删除的元素将被忽略，同时，新创建的数组也不会包含这些元素。</p>
-<p>回调函数可以有三个参数：当前元素，当前元素的索引和当前的数组对象。</p>
+<h5 id="对数组中的每个元素都执行一次指定的函数（callback），并且创建一个新的数组，该数组元素是所有回调函数执行时返回值为-true-的原数组元素。它只对数组中的非空元素执行指定的函数，没有赋值或者已经删除的元素将被忽略，同时，新创建的数组也不会包含这些元素。"><a href="#对数组中的每个元素都执行一次指定的函数（callback），并且创建一个新的数组，该数组元素是所有回调函数执行时返回值为-true-的原数组元素。它只对数组中的非空元素执行指定的函数，没有赋值或者已经删除的元素将被忽略，同时，新创建的数组也不会包含这些元素。" class="headerlink" title="对数组中的每个元素都执行一次指定的函数（callback），并且创建一个新的数组，该数组元素是所有回调函数执行时返回值为 true 的原数组元素。它只对数组中的非空元素执行指定的函数，没有赋值或者已经删除的元素将被忽略，同时，新创建的数组也不会包含这些元素。"></a>对数组中的每个元素都执行一次指定的函数（callback），并且创建一个新的数组，该数组元素是所有回调函数执行时返回值为 true 的原数组元素。它只对数组中的非空元素执行指定的函数，没有赋值或者已经删除的元素将被忽略，同时，新创建的数组也不会包含这些元素。</h5><p>回调函数可以有三个参数：当前元素，当前元素的索引和当前的数组对象。</p>
 <p>如参数 thisObject 被传递进来，它将被当做回调函数（callback）内部的 this 对象，如果没有传递或者为null，那么将会使用全局对象。</p>
 <p>filter 不会改变原有数组，记住：只有在回调函数执行前传入的数组元素才有效，在回调函数开始执行后才添加的元素将被忽略，而在回调函数开始执行到最后一个元素这一期间，数组元素被删除或者被更改的，将以回调函数访问到该元素的时间为准，被删除的元素将被忽略。</p>
-<p>#map():<br>    //将所有的数组元素转换为大写：</p>
-<pre><code>var strings = [&quot;hello&quot;, &quot;Array&quot;, &quot;WORLD&quot;];
+<h1 id="map"><a href="#map" class="headerlink" title="map():"></a>map():</h1><pre><code>//将所有的数组元素转换为大写：
+
+var strings = [&quot;hello&quot;, &quot;Array&quot;, &quot;WORLD&quot;];
 function makeUpperCase(v)
 {
 return v.toUpperCase();
@@ -200,7 +200,7 @@ var uppers = strings.map(makeUpperCase);
 // uppers is now [&quot;HELLO&quot;, &quot;ARRAY&quot;, &quot;WORLD&quot;]
 // strings is unchanged
 //结果：[&quot;hello&quot;, &quot;Array&quot;, &quot;WORLD&quot;].map(makeUpperCase) ： HELLO, ARRAY, WORLD
-</code></pre><p>#some():<br>对数组中的每个元素都执行一次指定的函数（callback），直到此函数返回 true，如果发现这个元素，some 将返回 true，如果回调函数对每个元素执行后都返回 false ，some 将返回 false。它只对数组中的非空元素执行指定的函数，没有赋值或者已经删除的元素将被忽略。<br>    //检查是否有数组元素大于等于10：</p>
+</code></pre><h1 id="some"><a href="#some" class="headerlink" title="some():"></a>some():</h1><p>对数组中的每个元素都执行一次指定的函数（callback），直到此函数返回 true，如果发现这个元素，some 将返回 true，如果回调函数对每个元素执行后都返回 false ，some 将返回 false。它只对数组中的非空元素执行指定的函数，没有赋值或者已经删除的元素将被忽略。<br>    //检查是否有数组元素大于等于10：</p>
 <pre><code>function isBigEnough(element, index, array) {
 return (element &gt;= 10);
 }
@@ -211,9 +211,7 @@ passed = [12, 5, 8, 1, 4].some(isBigEnough);
 //结果：
 //[2, 5, 8, 1, 4].some(isBigEnough) ： false 
 //[12, 5, 8, 1, 4].some(isBigEnough) ： true
-</code></pre><p>#every():</p>
-<p>#####对数组中的每个元素都执行一次指定的函数（callback），直到此函数返回 false，如果发现这个元素，every 将返回 false，如果回调函数对每个元素执行后都返回 true ，every 将返回 true。它只对数组中的非空元素执行指定的函数，没有赋值或者已经删除的元素将被忽略</p>
-<pre><code>//测试是否所有数组元素都大于等于10：
+</code></pre><h1 id="every"><a href="#every" class="headerlink" title="every():"></a>every():</h1><h5 id="对数组中的每个元素都执行一次指定的函数（callback），直到此函数返回-false，如果发现这个元素，every-将返回-false，如果回调函数对每个元素执行后都返回-true-，every-将返回-true。它只对数组中的非空元素执行指定的函数，没有赋值或者已经删除的元素将被忽略"><a href="#对数组中的每个元素都执行一次指定的函数（callback），直到此函数返回-false，如果发现这个元素，every-将返回-false，如果回调函数对每个元素执行后都返回-true-，every-将返回-true。它只对数组中的非空元素执行指定的函数，没有赋值或者已经删除的元素将被忽略" class="headerlink" title="对数组中的每个元素都执行一次指定的函数（callback），直到此函数返回 false，如果发现这个元素，every 将返回 false，如果回调函数对每个元素执行后都返回 true ，every 将返回 true。它只对数组中的非空元素执行指定的函数，没有赋值或者已经删除的元素将被忽略"></a>对数组中的每个元素都执行一次指定的函数（callback），直到此函数返回 false，如果发现这个元素，every 将返回 false，如果回调函数对每个元素执行后都返回 true ，every 将返回 true。它只对数组中的非空元素执行指定的函数，没有赋值或者已经删除的元素将被忽略</h5><pre><code>//测试是否所有数组元素都大于等于10：
 
 function isBigEnough(element, index, array) {
 return (element &gt;= 10);
@@ -225,8 +223,9 @@ passed = [12, 54, 18, 130, 44].every(isBigEnough);
 //结果：
 //[12, 5, 8, 130, 44].every(isBigEnough) 返回 ： false 
 //[12, 54, 18, 130, 44].every(isBigEnough) 返回 ： true
-</code></pre><p>#forEach():<br>    //打印数组内容：</p>
-<pre><code>function printElt(element, index, array) {
+</code></pre><h1 id="forEach"><a href="#forEach" class="headerlink" title="forEach():"></a>forEach():</h1><pre><code>//打印数组内容：
+
+function printElt(element, index, array) {
 document.writeln(&quot;[&quot; + index + &quot;] is &quot; + element + &quot;&lt;br /&gt;&quot;);
 }
 [2, 5, 9].forEach(printElt);
@@ -238,7 +237,7 @@ document.writeln(&quot;[&quot; + index + &quot;] is &quot; + element + &quot;&lt
 //[0] is 2
 //[1] is 5
 //[2] is 9
-</code></pre><p>#lastIndexOf():<br>语法</p>
+</code></pre><h1 id="lastIndexOf"><a href="#lastIndexOf" class="headerlink" title="lastIndexOf():"></a>lastIndexOf():</h1><p>语法</p>
 <pre><code>var index = array.lastIndexOf(searchElement[, fromIndex]);
 </code></pre><p>参数说明</p>
 <p>searchElement： 要搜索的元素</p>
@@ -265,7 +264,7 @@ index = array.lastIndexOf(2, -1);
 //[2, 5, 9, 2].lastIndexOf(2, 2) ： 0 
 //[2, 5, 9, 2].lastIndexOf(2, -2) ： 0 
 //[2, 5, 9, 2].lastIndexOf(2, -1) ： 3
-</code></pre><p>#indexOf():<br>功能与lastIndexOf()一样，搜索是正向进行的</p>
+</code></pre><h1 id="indexOf"><a href="#indexOf" class="headerlink" title="indexOf():"></a>indexOf():</h1><p>功能与lastIndexOf()一样，搜索是正向进行的</p>
 <p>复制代码<br>//查找符合条件的元素：</p>
 <pre><code>var array = [2, 5, 9];
 var index = array.indexOf(2);
@@ -275,8 +274,7 @@ index = array.indexOf(7);
 //结果：
 //[2, 5, 9].indexOf(2) ： 0 
 //[2, 5, 9].indexOf(7) ： -1 
-</code></pre><p>#slice()</p>
-<p><strong>方法返回一个新的数组对象，这一对象是一个由 begin和 end（不包括end）决定的原数组的浅拷贝。原始数组不会被改变。</strong></p>
+</code></pre><h1 id="slice"><a href="#slice" class="headerlink" title="slice()"></a>slice()</h1><p><strong>方法返回一个新的数组对象，这一对象是一个由 begin和 end（不包括end）决定的原数组的浅拷贝。原始数组不会被改变。</strong></p>
 <pre><code>var animals = [&apos;ant&apos;, &apos;bison&apos;, &apos;camel&apos;, &apos;duck&apos;, &apos;elephant&apos;];
 
 console.log(animals.slice(2));
@@ -321,7 +319,15 @@ console.log(animals.slice(1, 5));
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Javascript</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ES6</a>
         		</li>
       		
 		</ul>
@@ -333,7 +339,7 @@ console.log(animals.slice(1, 5));
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/JavaScript//" class="article-tag-list-link color1">JavaScript</a>
+        			<a href="/categories/Javascript//" class="article-tag-list-link color1">Javascript</a>
         		</li>
       		
 		</ul>
@@ -388,7 +394,7 @@ console.log(animals.slice(1, 5));
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/06/05/数组的some every方法区别/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/08/01/数组的some every方法区别/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -402,11 +408,15 @@ console.log(animals.slice(1, 5));
   
 <nav id="article-nav">
   
-  
-    <a href="/2018/09/01/搭建自己的免费博客/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">[HEXO]搭建自己的免费博客</div>
-      <i class="icon-circle-right"></i>
+    <a href="/2018/09/01/ArrayEs6新方法/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          [ES6]Array数组新方法
+        
+      </div>
     </a>
+  
   
 </nav>
 
@@ -530,7 +540,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+                <a href="javascript:void(0)" class="js-tag color1">Javascript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">前端</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -546,7 +564,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Javascript</a>
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -554,7 +572,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">前端</a>
+                <a href="javascript:void(0)" class="js-tag color4">VUE</a>
               </li>
             
             <div class="clearfix"></div>
